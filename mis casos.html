@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bienvenido a Ciudada.No</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script type="text/javascript" src="ciudadano.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>	
+<script type="text/javascript" src="FirebaseConfig.js"></script>
+<script type="text/javascript" src="ciudadano.js"></script>
+</head>
+<body>
+</head>
+<body>
+	
+	<header class="">
+	
+		<div class="logo" style="left: 60px; position: relative;"><a class="navbar-brand" href="home.html"><span class="red">Ciud</span><span class="white">ada</span><span class="blue">.NO</span></a></div>		
+	</header>
+	<ul class="nav nav-tabs  justify-content-end">
+  			<li class="nav-item">
+    			<a class="nav-link" href="home.html">Inicio</a>
+ 		    </li>
+  			<li class="nav-item dropdown" id="dropdown">
+    		</li>
+    		<li class="nav-item">
+   				 <a class="nav-link" href="contacto.html">Contacto</a>
+ 			 </li>
+		</ul>
+		<div class="container border shadow-sm" style="height:100%; margin-top: 10px;">
+			<table id="table" class="table">
+		<thead>
+			<tr>
+				<th scope="col">Evidencia (Foto)</th>
+				<th scope="col" ="">Tipo</th>
+				<th scope="col" ="">Fecha</th>
+			</tr>
+		</thead>
+		<tbody id="tblDatos">
+			
+		</tbody>
+		
+	</table>
+		</div>
+
+<footer class="shadow-sm">
+		<div class="">
+
+			<p>CIUDADA.NO, Copyright &copy; 2018</p>
+						
+		</div>
+    </footer>
+		
+
+</body>
+<script type="text/javascript">
+
+		firebase.auth().onAuthStateChanged(function(user) {
+  			if (user) {
+    // User is signed in.
+
+
+	 firebase.database().ref('Casos/'+ user.uid)
+	 .orderByChild('Fecha')
+	 .on('child_added',function(data){
+    
+       
+		    var urlPhoto = firebase.storage().ref('evidencias/' + data.val().urlPhoto);
+
+		urlPhoto.getDownloadURL().then(function (url) {
+		var node = document.getElementById('imagen');
+		var img = document.createElement('img');
+				
+
+		var tblDatos = document.getElementById('tblDatos');
+
+
+				tr = createNode('tr');
+
+				td = createNode('td');
+				img = createNode('img');
+				img.src = url;
+				td.appendChild(img);
+				tr.appendChild(td);
+
+
+				td = createNode('td');
+				td.innerHTML =data.val().Tipo;
+				tr.appendChild(td);
+
+				td = createNode('td');
+				td.innerHTML = data.val().Fecha;
+				tr.appendChild(td);
+				tblDatos.appendChild(tr);		
+
+	})
+		
+		console.log(user.uid);
+ });
+    
+  } else {
+    // No user is signed in.
+  }
+});
+</script>
+</html>

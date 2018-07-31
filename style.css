@@ -1,0 +1,217 @@
+body{
+
+	padding: 0;
+	margin:0;
+}
+
+.container{
+	width: 90%;
+	margin: auto;
+}
+header{
+	min-width: 70px;
+	overflow: hidden;
+}
+
+
+nav{
+	float: right;
+	margin-top:20px;
+
+}
+
+
+.logo {
+	left: 60px; 
+	position: relative;
+	text-shadow: 0.5px 1px 1px grey;
+	text-transform: uppercase;
+}
+
+.logoContacto {
+	
+	text-shadow: 0.5px 1px 1px grey;
+	text-transform: uppercase;
+}
+
+.logoContacto a{
+	font-size: 50px;
+}
+
+.logo a{
+	font-size: 50px;
+}
+
+.red{
+	color:#d50000;
+}
+
+.blue{
+	color:#0277bd;
+}
+
+.white{
+	color:white;
+}
+
+.content{
+	padding: 50px;
+	
+}
+
+.container-form{
+	top: 40px;
+	margin: auto;
+	width: 50%;
+	position: relative;
+	padding: 20px;
+}
+
+
+.form-top{
+	text-align: center;
+	background-color:lightgrey;
+	margin:auto;
+	width: 100%;
+}
+.center{
+	margin:auto;
+	width: 90%;
+	text-align: center;
+}
+.btn-login{
+	text-align:center;
+}
+.btnpassword{
+	text-align: center;
+}
+
+.form-reporte{
+	width:50%; 
+	margin: auto; 
+	margin-top: 60px;
+	padding: 10px; 
+}
+button{
+	width:30%;
+}
+
+
+
+footer{
+	background-color:#0277bd;
+	padding: 30px;
+	position: relative;
+	top: 72px;
+	margin:0;
+}
+
+footer p{
+	text-align: center;
+	margin:auto;
+	width: 90%;
+}
+
+
+footer img{
+	float: right;
+	padding: 0px 10px;
+	position: relative;
+	bottom: 13px;
+
+}
+
+.container-form .btn-registro{
+	padding-left: 70px;
+	padding-right: 70px;
+}
+
+.show{
+	display:block;
+}
+
+.noShow{
+	display: none;
+}
+
+/*contacto*/
+.formContacto{
+	padding: 10px;
+	width: 50%;
+	margin: auto;
+	margin-top: 90px;
+}
+
+.formPassword{width:60%; margin: auto; margin-top: 60px;  padding: 20px; }
+
+#mapid { height: 1000px; height: 400px; }
+
+
+@media only screen and (max-width:768px){
+
+.btn-iniciar-sesion{
+	width: 80%;
+
+}
+
+.btn-registro, .btn-registro2{
+	width: 80%;
+	margin-top: 4px;
+}
+
+
+.container-form{
+	width: 100%;
+	margin: auto;
+}
+
+.logo{
+	width: 50%;
+	margin:auto;
+}
+.form-reporte{
+	width: 95%;
+	padding:10px;
+	margin: auto;
+}
+.btn-reporte{
+	width: 100%;
+	margin-top:4px;
+	margin-bottom: 4px;
+}
+.btnPassword{
+	width: 100%;
+	margin-top:4px;
+}
+.formContacto{
+	width: 90%;
+
+}
+.btncontacto{
+	width: 100%;
+}
+
+}
+@media only screen and (max-width:425px){
+
+	.logoContacto a{
+		font-size: 30px;
+	}
+	.logo{
+		width: 100%;
+		margin:auto;
+	}
+	.formPassword{
+		margin-top: 60px;
+		width: 90%;
+	}
+}
+
+
+@media only screen and (max-width:350px){
+	.logo{
+		width: 100%;
+		margin: auto;
+		margin-left: -45px;
+	}
+}

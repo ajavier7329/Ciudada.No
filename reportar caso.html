@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Reportar caso</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDlZyYhhg3xibp13A-ehKWfIx0ycg7_t5A",
+    authDomain: "ciudadano-9c870.firebaseapp.com",
+    databaseURL: "https://ciudadano-9c870.firebaseio.com",
+    projectId: "ciudadano-9c870",
+    storageBucket: "ciudadano-9c870.appspot.com",
+    messagingSenderId: "991525680977"
+  };
+  firebase.initializeApp(config);
+</script>
+		<script type="text/javascript" src="ciudadano.js"></script>
+
+
+
+
+</head>
+<body>
+	<header class="">
+	
+		<div class="logo" ><a class="navbar-brand" href="home.html"><span class="red">Ciud</span><span class="white">ada</span><span class="blue">.NO</span></a></div>		
+	</header>
+	<ul class="nav nav-tabs  justify-content-end" style="width: ; margin: auto;">
+  			<li class="nav-item">
+    			<a class="nav-link" href="home.html">Inicio</a>
+ 		    </li>
+  			<li class="nav-item dropdown" id="dropdown">
+    		</li>
+    		<li class="nav-item">
+   				 <a class="nav-link" href="contacto.html">Contacto</a>
+ 			 </li>
+		</ul>
+
+		<h2 class="display-4 center" style="margin-top: 10px;">Reporte aqui su caso en su comunidad</h2>
+
+<form class="shadow-sm form-reporte border" >
+	 <span><div class="noShow" id="alertReporte" role="alert">
+  Tu reporte ha sido enviado con Exito!
+</div></span>
+  <div class="form-group">
+    <label for="problematicas">Tipo de problematica</label>
+    <select class="form-control" id="problematicas" required>
+      <option>Problemas electricos</option>
+      <option>Contenes tapados</option>
+      <option>Calles sin asfaltar</option>
+      <option>Poco presencia policial</option>
+      <option>Falta de agua potable</option>
+    </select>
+   </div>
+   <div class="form-group">
+    <label for="fecha">Fecha</label>
+    <input type="date" class="form-control" id="fecha" required>
+  </div>
+
+  <div class="form-group">
+  	<label for="ubicacion">Ubicacion <span class="fas fa-map fa-border btn-sm" type="button" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="right" title="Usar Mapa"></span>
+    </label>
+  <div class="row">
+  	<div class="col" id="ubicacion">
+  		<input type="text" class="form-control" id="Latitud" placeholder="Latitud" required>
+  	</div>
+  	<div class="col">
+  		<input type="text" class="form-control" id="Longitud" placeholder="Longitud" required>  
+  	</div>
+  </div>
+</div>
+  <div class="form-group">
+    <label for="comentario">Comentario</label>
+    <input type="textarea" class="form-control" id="comentario" required>
+  </div>
+  <div class="form-group">
+    <label for="evidencia">Evidencia</label>
+  	<div style="width: 100%;">
+  		<progress value="0" max="100" id="progressBar" style="width: 100%;">0%</progress>
+  	</div>
+<input type="file" class="form-control" id="evidencia" style="margin-top:10px;" required>
+  </div>
+  <div class="form-group">
+    <label for="estado">Estado</label>
+    <input type="textarea" class="form-control" id="estado" placeholder="Pendiente" disabled="">
+  </div>
+  <div class="form-group custom-control custom-checkbox">
+  	<input type="checkbox" class="custom-control-input" id="customCheck1" required>
+  	<label class="custom-control-label" for="customCheck1"><a href="#">Estoy de acuerdo a los terminos y condiciones</a></label>
+  </div>
+ 
+  <button type="button" class="btn btn-primary btn-reporte" onclick="subirEvidencia();">Reportar</button>
+	
+	
+</form>
+
+<!-- Modal Map -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="mapid"></div>
+
+<script type="text/javascript">
+  var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'sk.eyJ1IjoiYWphdmllcjczMjkiLCJhIjoiY2prN240NngyMmJhMDN4bnRjMHd5MmRrOCJ9.yK88CROqm1yHPzMKB7E_OA'
+      }).addTo(mymap);
+
+  var marker = L.marker([51.5, -0.09]).addTo(mymap);
+  
+</script>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="shadow-sm">
+		<div class="">
+
+			<p>CIUDADA.NO, Copyright &copy; 2018</p>
+						
+		</div>
+    </footer>
+    <script type="text/javascript">
+    	var uploader = document.getElementById('progressBar');
+ 		var evidencia = document.getElementById('evidencia');
+ 		var storage = firebase.storage();
+	
+ 	
+ 	evidencia.addEventListener('change', function (e) {
+
+ 		var file = e.target.files[0]
+ 		console.log(file.name);
+ 		var storageRef = storage.ref('evidencias/' + file.name);
+ 		var task = storageRef.put(file);
+
+ 		task.on('state_changed',
+
+ 		function progress(snapshot) {
+			
+			var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+			uploader.value = percentage; 			
+ 		},
+
+ 		function error(err){
+ 			console.log(err)
+ 		},
+
+ 		function complete() {
+ 			
+ 		}
+
+ 		)
+ 	}) 
+    </script>
+
+
+</body>
+</html>

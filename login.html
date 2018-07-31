@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Login</title>
+		
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+
+		<script type="text/javascript" src="FirebaseConfig.js"></script>
+<script type="text/javascript" src="ciudadano.js"></script>
+
+
+
+
+</head>
+<body>
+	<header>
+	
+		<div class="logo" ><a class="navbar-brand" href="#"><span class="red">Ciud</span><span class="white">ada</span><span class="blue">.NO</span></a></div>		
+	</header>
+	<ul class="nav nav-tabs  justify-content-end">
+  			<li class="nav-item">
+   				 <a class="nav-link" href="#">Acerca de</a>
+ 			 </li>
+		</ul>
+
+
+	<div class="container-form">
+
+		<form class="shadow-sm border">
+
+		<div class="form-top blue shadow-sm">
+			<h2>Bienvenidos</h2>
+			<p>"Inicia Sesion y cuentanos tus problemas"</p>
+			<hr>
+		</div>
+			<div class="form-group" style="width: 90%; margin:auto;">
+				<label for="email">Correo Electronico</label>
+				<input class="form-control" id="email" type="email" name="correo" placeholder="Correo Electronico">
+			</div>
+			<div class="form-group" style="width: 90%; margin:auto; margin-top: 4px;">
+				<label for="password">Contraseña</label>
+				<input class="form-control" id="password" type="password" name="password" placeholder="Contraseña">
+			</div>
+			<div class="form-group btn-login" style="margin: 15px 0px;">
+				<button type="button" class="btn btn-primary btn-iniciar-sesion" onclick="iniciarSesion()">Iniciar Sesion</button>
+				<a class="btn btn-secondary btn-registro" href="registro.html">Registrarse</a>
+			</div>
+			<div class="center">
+				<a href="#">Politicas de Privacidad</a><span> | </span><a href="#">Terminos y Condiciones</a>
+		
+			</div>
+		</form>
+	</div>
+	<footer class="shadow-sm">
+		<div class="">
+
+			<p>CIUDADA.NO, Copyright &copy; 2018</p>
+						
+		</div>
+    </footer>
+</body>
+</html>
